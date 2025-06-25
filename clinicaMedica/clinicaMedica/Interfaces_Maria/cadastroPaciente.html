@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link rel="stylesheet" href="style2.css" />
+  <title>Cadastro</title>
+</head>
+<body class="body">
+  <main class="container">
+    <nav>
+      <h1 class="title">Cadastre-se Aqui!</h1>
+    </nav>
+    <form id="formcadastroPaciente">
+      
+      <div class="row">
+        <div class="inputdiv">
+          <input id="Nome Completo" type="text" required />
+          <label for="Nome Completo">Nome</label>
+        </div>
+         <div class="inputdiv">
+          <input id="CPF" type="CPF" required />
+          <label for="CPF">CPF</label>
+        </div>
+         <div class="inputdiv">
+          <input id="Data de nascimento" type="date" required />
+          <label for="Data de nascimento">Data de nascimento</label>
+        </div>
+ <div class="mb-4">
+                <label for="Gênero">Gênero</label>
+                <select id="Gênero" name="Gênero" required>
+                    <option value="Feminino">Feminino</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Outro">Outro</option>
+                </select>
+            </div>
+            <div class="inputdiv">
+              <input id="Telefone" type="tel" required />
+              <label for="Telefone">Telefone</label>
+            </div>
+          <div class="inputdiv">
+          <input id="CEP" type="text" required />
+          <label for="CEP">CEP</label>
+        </div>
+        <div class="inputdiv">
+          <input id="endereco" type="text" required />
+          <label for="endereco">Endereço</label>
+        </div>
+        <div class="inputdiv">
+          <input id="email" type="email" required />
+          <label for="email">Email</label>
+        </div>
+        <div class="inputdiv">
+          <input id="Senha" type="password" required />
+          <label for="Senha">Senha</label>
+        </div>
+        <div class="inputdiv">
+          <input id="Confirmar Senha" type="password" required />
+          <label for="Confirmar Senha">Confirmar Senha</label>
+      </div>
+      <div class="row" style="justify-content: center; margin-top: 40px;">
+        <button class="button" id="btncadastro">Cadastrar</button>
+      </div>
+    </form>
+  </main>
+   <script src="./index.js" defer></script>
+   <script src="./style2.css" defer></script>
+   <div class="row">
+                <div class="cadastrolink">
+                    <p>Já tem uma conta?<a href="loginPaciente.html"> Faça login aqui!</a></p>
+                    
+                </div>
+            </div>
+</body>
+</html>
