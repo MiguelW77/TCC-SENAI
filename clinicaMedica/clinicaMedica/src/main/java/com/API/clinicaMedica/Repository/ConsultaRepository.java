@@ -1,7 +1,15 @@
 package com.API.clinicaMedica.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import com.API.clinicaMedica.Model.ConsultaModel;
 
-public interface ConsultaRepository extends JpaRepository{
+@Repository
+public interface ConsultaRepository extends JpaRepository<ConsultaModel, Long> {
+    
+    // Aqui você pode adicionar métodos personalizados, se necessário
+    // Por exemplo, para buscar consultas por paciente ou por data
+    // List<ConsultaModel> findByPacienteId(Long pacienteId);
+    // List<ConsultaModel> findByDataConsulta(DateTimeException dataConsulta);
     
 }

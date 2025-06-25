@@ -30,7 +30,7 @@ public class ConsultaModel {
     private DateTimeException dataConsulta;
 
     @ManyToOne
-    @JoinColumn(name = "id_paciente", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_pa ciente", referencedColumnName = "id", nullable = false)
     private PacienteModel paciente;
 
     @Column(nullable = false)
