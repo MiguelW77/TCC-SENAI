@@ -8,8 +8,9 @@
 </head>
 <body class="body">
   <main class="container">
+    ,        
     <nav>
-      <h1 class="title">Cadastre-se Aqui!</h1>
+      <h1 class="title">Cadastre-se</h1>
     </nav>
     <form id="formcadastroPaciente">
       
@@ -26,14 +27,16 @@
           <input id="Data de nascimento" type="date" required />
           <label for="Data de nascimento">Data de nascimento</label>
         </div>
- <div class="mb-4">
-                <label for="Gênero">Gênero</label>
-                <select id="Gênero" name="Gênero" required>
-                    <option value="Feminino">Feminino</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Outro">Outro</option>
-                </select>
-            </div>
+<div class="inputdiv">
+  <select id="Gênero" name="Gênero" required>
+    <option value="" disabled selected hidden></option>
+    <option value="Feminino">Feminino</option>
+    <option value="Masculino">Masculino</option>
+    <option value="Outro">Outro</option>
+  </select>
+  <label for="Gênero">Gênero</label>
+</div>
+
             <div class="inputdiv">
               <input id="Telefone" type="tel" required />
               <label for="Telefone">Telefone</label>
