@@ -1,7 +1,5 @@
 package com.API.clinicaMedica.Model;
 
-import java.time.DateTimeException;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,10 +25,10 @@ public class ConsultaModel {
     private Long id;
 
     @Column(nullable = false)
-    private DateTimeException dataConsulta;
+    private String dataConsulta;
 
     @ManyToOne
-    @JoinColumn(name = "id_pa ciente", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_paciente", referencedColumnName = "id", nullable = false)
     private PacienteModel paciente;
 
     @Column(nullable = false)
