@@ -1,5 +1,6 @@
 package com.API.clinicaMedica.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.print.DocFlavor.READER;
@@ -18,7 +19,9 @@ public class Historico_medicoService {
     public Historico_medicoModel Salvar(Historico_medicoModel historico_medico){
         return repository.save(historico_medico);
     }
-
+    public List<Historico_medicoModel> listartodos(){
+        return repository.findAll();
+    }
     public Historico_medicoModel BuscarPorId(Long id){
         Optional<Historico_medicoModel> historico_medico = repository.findById(id);
         if (historico_medico.isPresent()) {
@@ -30,8 +33,11 @@ public class Historico_medicoService {
     public Historico_medicoModel Atualizar(Long id, Historico_medicoModel historico_medico){
         Historico_medicoModel historico_medicoExistente = repository.findById(id)
          .orElseThrow(() -> new RuntimeException("Historico Medico não encontrada com o ID: " + id));
-         historico_medicoExistente.setHorahistorico_medico(historico_medico.getHorahistorico_medico());
-         historico_medicoExistente.setDatahistorico_medico(historico_medico.getDatahistorico_medico());
+         historico_medicoExistente.setDataConsulta(historico_medico.getDataConsulta());
+         historico_medicoExistente.setDiagnostico(historico_medico.getDiagnostico());
+         historico_medicoExistente.setEspecialidade_medico(historico_medico.getEspecialidade_medico());
+         historico_medicoExistente.setProcedimento(historico_medico.getProcedimento());
+         historico_medicoExistente.setPrescricao(historico_medico.getPrescricao());
             return repository.save(historico_medicoExistente);
         }
         public void Deletar(Long id){
