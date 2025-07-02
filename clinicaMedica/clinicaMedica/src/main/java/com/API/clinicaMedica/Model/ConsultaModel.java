@@ -23,10 +23,10 @@ public class ConsultaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     
     private Long id;
-
+    //ajuste de tela
     @Column(nullable = false)
     private String dataConsulta;
-
+   
     @ManyToOne
     @JoinColumn(name = "id_paciente", referencedColumnName = "id", nullable = false)
     private PacienteModel paciente;
