@@ -11,5 +11,4 @@ public interface ConsultaRepository extends JpaRepository<ConsultaModel, Long> {
     // Por exemplo, para buscar consultas por paciente ou por data
     // List<ConsultaModel> findByPacienteId(Long pacienteId);
     // List<ConsultaModel> findByDataConsulta(DateTimeException dataConsulta);
-    
 }

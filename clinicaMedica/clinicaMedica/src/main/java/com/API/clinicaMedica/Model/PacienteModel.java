@@ -49,10 +49,7 @@ public class PacienteModel {
 
     @Column(nullable = false, length = 250)
     private String endereco;
-
+    
     @Column(nullable = false, length = 15)
     private String cep;
-
-
-
 }
