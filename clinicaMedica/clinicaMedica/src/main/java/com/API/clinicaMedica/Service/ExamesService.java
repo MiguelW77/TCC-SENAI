@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.API.clinicaMedica.Model.ExamesModel;
-import com.API.clinicaMedica.Model.Historico_medicoModel;
 import com.API.clinicaMedica.Repository.ExamesRepository;
 
 @Service
