@@ -3,13 +3,14 @@ package com.API.clinicaMedica.Service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.API.clinicaMedica.Model.PacienteModel;
 import com.API.clinicaMedica.Repository.PacienteRepository;
 
 @Service
 public class PacienteService {
-
+    @Autowired
     private PacienteRepository repository;
 
     public PacienteModel Salvar(PacienteModel paciente) {

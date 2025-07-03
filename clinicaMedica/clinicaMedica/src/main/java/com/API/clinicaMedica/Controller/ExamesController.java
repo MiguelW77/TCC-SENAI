@@ -11,15 +11,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.API.clinicaMedica.Model.ExamesModel;
 import com.API.clinicaMedica.Service.ExamesService;
 
-import jakarta.persistence.Table;
+
 @RestController
+@RequestMapping("/api/exames")
 @CrossOrigin
-@Table(name = "Exames")
 public class ExamesController {
     @Autowired
     private ExamesService service;
@@ -38,7 +39,7 @@ public class ExamesController {
             }
         }
         @PostMapping
-        public ExamesModel salvar(ExamesModel exames){
+        public ExamesModel salvar( @RequestBody ExamesModel exames){
             return service.Salvar(exames);
         }
         @PutMapping("/{id}")
