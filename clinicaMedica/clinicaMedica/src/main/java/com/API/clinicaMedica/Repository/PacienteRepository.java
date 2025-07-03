@@ -5,5 +5,5 @@ import com.API.clinicaMedica.Model.PacienteModel;
 
 @Repository
 public interface PacienteRepository extends JpaRepository<PacienteModel, Long> {
-
 }
+
