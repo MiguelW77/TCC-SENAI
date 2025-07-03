@@ -14,6 +14,8 @@ public class ExamesService {
     @Autowired
     private ExamesRepository repository;
 
+    @Autowired
+    private ExamesService service;
     public ExamesModel Salvar(ExamesModel exames){
         return repository.save(exames);
     }
