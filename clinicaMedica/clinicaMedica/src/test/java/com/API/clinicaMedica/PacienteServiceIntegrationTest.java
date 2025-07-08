@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,39 +18,68 @@ class PacienteServiceIntegrationTest {
     @Autowired
     private PacienteService pacienteService;
 
-    /*
-     * Nome: Teste de Cadastro de Paciente
-     * Objetivo: Validar se o sistema cadastra e busca paciente corretamente.
-     */
-    @Test
-    void testSalvarEBuscarPaciente() {
-        System.out.println("[TESTE] Iniciando teste de salvar e buscar paciente...");
-
+    PacienteModel criarPacienteValido() {
         PacienteModel paciente = new PacienteModel();
-        paciente.setNome("João da Silva");
+        paciente.setNome("Maria Oliveira");
         paciente.setCpf("12345678900");
-        paciente.setTelefone("11988887777");
-        paciente.setEmail("joao.silva@clinica.com");
-        paciente.setSenha("senha123");
+        paciente.setTelefone("11999998888");
+        paciente.setEmail("maria@clinica.com");
+        paciente.setSenha("senhaSegura");
         paciente.setTermos("aceito");
-        paciente.setDataNascimento(Date.valueOf(LocalDate.of(1990, 5, 20)));
-        paciente.setGenero("Masculino");
-        paciente.setEndereco("Rua das Flores, 100");
-        paciente.setCep("01234567");
+        paciente.setDataNascimento(Date.valueOf(LocalDate.of(1985, 10, 15)));
+        paciente.setGenero("Feminino");
+        paciente.setEndereco("Rua da Paz, 123");
+        paciente.setCep("04567890");
+        return paciente;
+    }
 
-        System.out.println("[TESTE] Tentando salvar paciente: " + paciente.getNome());
-
+    @Test
+    void testCadastroEBusca() {
+        PacienteModel paciente = criarPacienteValido();
         PacienteModel salvo = pacienteService.Salvar(paciente);
+        assertNotNull(salvo.getId());  
+        assertEquals("Maria Oliveira", salvo.getNome());
 
-        assertNotNull(salvo.getId(), "[ASSERT] O ID não deve ser nulo");
-        assertEquals("João da Silva", salvo.getNome(), "[ASSERT] Nome deve ser 'João da Silva'");
+        PacienteModel buscado = pacienteService.BuscarPorId(salvo.getId());
+        assertNotNull(buscado);
+        assertEquals("Feminino", buscado.getGenero());
+    }
 
-        PacienteModel encontrado = pacienteService.BuscarPorId(salvo.getId());
+    @Test
+    void testListagem() {
+        pacienteService.Salvar(criarPacienteValido());
+        List<PacienteModel> pacientes = pacienteService.ListarTodos();
+        assertFalse(pacientes.isEmpty(), "A lista de pacientes não deve estar vazia");
+    }
 
-        assertNotNull(encontrado, "[ASSERT] O paciente buscado não deve ser nulo");
-        assertEquals("Masculino", encontrado.getGenero(), "[ASSERT] Gênero deve ser 'Masculino'");
-        assertEquals("01234567", encontrado.getCep(), "[ASSERT] CEP deve ser '01234567'");
+    @Test
+    void testAtualizacao() {
+        PacienteModel salvo = pacienteService.Salvar(criarPacienteValido());
+        salvo.setNome("Maria Atualizada");
+        salvo.setCpf("00011122233");
 
-        System.out.println("[TESTE] Teste finalizado com sucesso!");
+        PacienteModel atualizado = pacienteService.Atualizar(salvo.getId(), salvo);
+        assertEquals("Maria Atualizada", atualizado.getNome());
+        assertEquals("00011122233", atualizado.getCpf());
+    }
+
+    @Test
+    void testExclusao() {
+        PacienteModel salvo = pacienteService.Salvar(criarPacienteValido());
+        Long id = salvo.getId();
+        pacienteService.Deletar(id);
+
+        PacienteModel excluido = pacienteService.BuscarPorId(id);
+        assertNull(excluido, "Paciente deveria ter sido excluído");
+    }
+
+    @Test
+    void testValidacaoCamposObrigatorios() {
+        PacienteModel paciente = new PacienteModel();
+        Exception excecao = assertThrows(Exception.class, () -> {
+            pacienteService.Salvar(paciente);
+        }, "Esperado erro ao tentar salvar paciente com campos obrigatórios vazios");
+
+        System.out.println("[ASSERT] Erro esperado: " + excecao.getMessage());
     }
 }
