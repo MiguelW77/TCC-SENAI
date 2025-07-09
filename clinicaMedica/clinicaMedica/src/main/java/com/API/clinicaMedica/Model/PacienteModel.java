@@ -39,9 +39,6 @@ public class PacienteModel {
     private String senha;
 
     @Column(nullable = false)
-    private String termos;
-
-    @Column(nullable = false)
     private Date dataNascimento;
 
     @Column(nullable = false, length = 50)

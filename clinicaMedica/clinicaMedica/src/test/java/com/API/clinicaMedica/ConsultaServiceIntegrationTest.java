@@ -30,7 +30,6 @@ public class ConsultaServiceIntegrationTest {
         paciente.setTelefone("11999998888");
         paciente.setEmail("maria@teste.com");
         paciente.setSenha("senha");
-        paciente.setTermos("aceito");
         paciente.setDataNascimento(Date.valueOf(LocalDate.of(1995, 3, 15)));
         paciente.setGenero("Feminino");
         paciente.setEndereco("Rua Teste, 123");

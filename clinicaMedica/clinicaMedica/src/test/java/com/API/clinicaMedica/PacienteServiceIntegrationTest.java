@@ -25,7 +25,6 @@ class PacienteServiceIntegrationTest {
         paciente.setTelefone("11999998888");
         paciente.setEmail("maria@clinica.com");
         paciente.setSenha("senhaSegura");
-        paciente.setTermos("aceito");
         paciente.setDataNascimento(Date.valueOf(LocalDate.of(1985, 10, 15)));
         paciente.setGenero("Feminino");
         paciente.setEndereco("Rua da Paz, 123");
