@@ -17,9 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.API.clinicaMedica.Model.MedicoModel;
 import com.API.clinicaMedica.Service.MedicoService;
 
+import jakarta.persistence.Table;
+
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/medicos")
+@Table(name = "medico")
 public class MedicoController {
 
     @Autowired

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.API.clinicaMedica.Model.ExamesModel;
@@ -19,7 +20,8 @@ import com.API.clinicaMedica.Service.ExamesService;
 import jakarta.persistence.Table;
 @RestController
 @CrossOrigin
-@Table(name = "Exames")
+@RequestMapping("/exames")
+@Table(name = "exames")
 public class ExamesController {
     @Autowired
     private ExamesService service;

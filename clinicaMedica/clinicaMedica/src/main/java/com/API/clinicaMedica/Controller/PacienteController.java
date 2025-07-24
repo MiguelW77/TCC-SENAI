@@ -18,9 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.API.clinicaMedica.Model.PacienteModel;
 import com.API.clinicaMedica.Service.PacienteService;
 
+import jakarta.persistence.Table;
+
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin
 @RequestMapping("/pacientes")
+@Table(name = "paciente")
 public class PacienteController {
 
      @Autowired
@@ -42,7 +45,7 @@ public class PacienteController {
     }
 
     @PostMapping
-    public PacienteModel salvar(PacienteModel paciente) {
+    public PacienteModel salvar(@RequestBody PacienteModel paciente) {
         return service.Salvar(paciente);
     }
 

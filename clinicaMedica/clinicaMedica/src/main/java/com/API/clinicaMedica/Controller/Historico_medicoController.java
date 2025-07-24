@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.API.clinicaMedica.Model.Historico_medicoModel;
@@ -20,7 +21,8 @@ import jakarta.persistence.Table;
 
 @RestController
 @CrossOrigin
-@Table(name = "Historioco_medico")
+@RequestMapping("/historico-medico")
+@Table(name = "historico_medico")
 public class Historico_medicoController {
     @Autowired
     private Historico_medicoService service;

@@ -17,9 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.API.clinicaMedica.Model.ConsultaModel;
 import com.API.clinicaMedica.Service.ConsultaService;
 
+import jakarta.persistence.Table;
+
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin
 @RequestMapping("/consultas")
+@Table(name = "consulta")
 public class ConsultaController {
     @Autowired
     private ConsultaService service;

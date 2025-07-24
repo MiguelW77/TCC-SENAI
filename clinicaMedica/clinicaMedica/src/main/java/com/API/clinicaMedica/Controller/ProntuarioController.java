@@ -19,7 +19,7 @@ import jakarta.persistence.Table;
 
 @RestController
 @CrossOrigin
-@Table(name = "Prontuario")
+@Table(name = "prontuario")
 public class ProntuarioController {
     @Autowired
     private ProntuarioService service;
