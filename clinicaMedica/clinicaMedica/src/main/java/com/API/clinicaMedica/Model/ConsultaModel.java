@@ -1,5 +1,11 @@
 package com.API.clinicaMedica.Model;
 
+import java.time.LocalDate;
+
+import org.springframework.cglib.core.Local;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,11 +31,17 @@ public class ConsultaModel {
     private Long id;
     //ajuste de tela
     @Column(nullable = false)
-    private String dataConsulta;
+    private LocalDate dataConsulta;
    
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "id_paciente", referencedColumnName = "id", nullable = false)
     private PacienteModel paciente;
+    
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "id_medico", referencedColumnName = "id", nullable = false)
+    private MedicoModel medico;
 
     @Column(nullable = false)
     private String horaConsulta;

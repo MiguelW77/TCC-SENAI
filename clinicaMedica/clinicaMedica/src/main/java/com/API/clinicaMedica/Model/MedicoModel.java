@@ -1,7 +1,10 @@
 package com.API.clinicaMedica.Model;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Entity;
- import  jakarta.persistence.*;
+
+import java.util.List;
+
+import  jakarta.persistence.*;
 import jakarta.persistence.GenerationType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +25,9 @@ public class MedicoModel {
     @Column(nullable = false)
     private String nome;
 
+    @Column(nullable = false, length = 11)
+    private String cpf;
+
     @Column(nullable = false, length = 50)
     private String especialidade;
 
@@ -40,5 +46,12 @@ public class MedicoModel {
     @Column(nullable = false)
     private String termos;
 
+    @OneToMany(mappedBy = "medico")
+    private List<ConsultaModel> consultas;
+    @OneToMany(mappedBy= "medico")
+    private List<ExamesModel> exames;
+    @OneToMany(mappedBy = "medico")
+    private List<ProntuarioModel> prontuarios;
+    
     
 }
