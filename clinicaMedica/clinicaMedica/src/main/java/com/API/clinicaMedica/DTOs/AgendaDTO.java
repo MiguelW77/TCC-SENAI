@@ -20,8 +20,8 @@ public class AgendaDTO {
                                .toList();
 
         this.exames = exames.stream()
-        .map(ExamesDTO:: new)
-        .toList();
+                                .map(ExamesDTO:: new)
+                            .toList();
     }
 
 }

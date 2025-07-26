@@ -1,11 +1,9 @@
 package com.API.clinicaMedica.Model;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Entity;
-
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import  jakarta.persistence.*;
-import jakarta.persistence.GenerationType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -47,11 +45,18 @@ public class MedicoModel {
     private String termos;
 
     @OneToMany(mappedBy = "medico")
+    @JsonManagedReference
     private List<ConsultaModel> consultas;
+    
     @OneToMany(mappedBy= "medico")
+    @JsonManagedReference
     private List<ExamesModel> exames;
+    
     @OneToMany(mappedBy = "medico")
+    @JsonManagedReference
     private List<ProntuarioModel> prontuarios;
-    
-    
+
+    @OneToMany(mappedBy = "medico")
+    @JsonManagedReference
+    private List<PacienteModel> pacientes;
 }

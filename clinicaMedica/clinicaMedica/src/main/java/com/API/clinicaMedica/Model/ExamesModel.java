@@ -1,6 +1,9 @@
 package com.API.clinicaMedica.Model;
 
 import java.time.DateTimeException;
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,11 +28,17 @@ public class ExamesModel {
     private Long id;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "id_paciente", referencedColumnName = "id", nullable = false)
     private PacienteModel paciente;
 
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "id_medico",referencedColumnName = "id", nullable = false)
+    private MedicoModel medico;
+
     @Column(nullable = false)
-    private DateTimeException data_exame;
+    private LocalDate data_exame;
 
     @Column(nullable = false, length = 100)
     private String tipo_exame;
@@ -37,6 +46,5 @@ public class ExamesModel {
     @Column(nullable = false, length = 255)
     private String local_exame;
 
-    @Column(nullable = false, length = 50)
-    private String status_exame;
+   
 }

@@ -52,4 +52,7 @@ public class PacienteModel {
     
     @Column(nullable = false, length = 15)
     private String cep;
+    
+
+
 }

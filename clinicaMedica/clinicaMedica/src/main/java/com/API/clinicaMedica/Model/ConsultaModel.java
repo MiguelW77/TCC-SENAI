@@ -1,6 +1,7 @@
 package com.API.clinicaMedica.Model;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import org.springframework.cglib.core.Local;
 
@@ -44,7 +45,7 @@ public class ConsultaModel {
     private MedicoModel medico;
 
     @Column(nullable = false)
-    private String horaConsulta;
+    private LocalTime horaConsulta;
 
     @Column(nullable = false, length = 500)
     private String consulta;
